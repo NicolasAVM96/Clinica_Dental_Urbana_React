@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+/* Luego, aplica la fuente a todo el body o a elementos específicos */
+body {
+  font-family: 'Oswald', sans-serif;
+}
+
