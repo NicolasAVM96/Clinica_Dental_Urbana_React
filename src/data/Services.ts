@@ -15,7 +15,7 @@ export const servicios: Servicio[] = [
     detalles: [
       "Incluye controles mensuales",
       "Evaluación previa requerida.",
-      "Valor estimado puede variar según diagnóstico."
+      "Valor estimado puede variar según diagnóstico.",
     ],
     img: ortodoncia,
   },
@@ -30,14 +30,20 @@ export const servicios: Servicio[] = [
     title: "Blanqueamiento",
     desc: "Tratamiento estético para aclarar el color de los dientes de forma segura y eficaz.",
     precio: "$120.000 CLP",
-    detalles: ["Evaluación previa requerida.", "No recomendado para menores de 18 años."],
+    detalles: [
+      "Evaluación previa requerida.",
+      "No recomendado para menores de 18 años.",
+    ],
     img: blanqueamiento,
   },
   {
     title: "Limpieza y Profilaxis",
     desc: "Eliminación de placa bacteriana y sarro para mantener una buena salud bucal.",
     precio: "$35.000 CLP",
-    detalles: ["Duración aproximada de 30 minutos.", "Recomendado cada 6 meses."],
+    detalles: [
+      "Duración aproximada de 30 minutos.",
+      "Recomendado cada 6 meses.",
+    ],
     img: limpieza,
   },
   {

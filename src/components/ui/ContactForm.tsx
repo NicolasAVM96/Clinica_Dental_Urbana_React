@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Table, Row, Col, Alert } from "react-bootstrap";
-import { v4 as uuidv4 } from "uuid"; 
+import { v4 as uuidv4 } from "uuid";
 import type { Country, FormData } from "../../data/InterfaceForm";
 
-
-
+// Componente principal del formulario de contacto
 const FormContact: React.FC = () => {
+  // Estado para la lista de países obtenidos de la API
   const [countries, setCountries] = useState<Country[]>([]);
+  // Estado para los datos del formulario
   const [formData, setFormData] = useState<FormData>({
     id: "",
     name: "",
@@ -17,13 +18,18 @@ const FormContact: React.FC = () => {
     capital: "",
     message: "",
   });
+  // Estado para los datos guardados (envíos realizados)
   const [savedData, setSavedData] = useState<FormData[]>([]);
+  // Estado para controlar si se está editando un registro
   const [editingId, setEditingId] = useState<string | null>(null);
+  // Estado para mostrar errores en el formulario
   const [error, setError] = useState<string | null>(null);
 
+  // Efecto para obtener países de la API y cargar datos guardados de localStorage
   useEffect(() => {
     const fetchCountries = async () => {
       try {
+        // Consulta a la API de países en español
         const response = await fetch(
           "https://restcountries.com/v3.1/lang/spanish"
         );
@@ -31,6 +37,7 @@ const FormContact: React.FC = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data: Country[] = await response.json();
+        // Ordena los países alfabéticamente
         const sortedData = data.sort((a, b) =>
           a.name.common.localeCompare(b.name.common)
         );
@@ -42,16 +49,19 @@ const FormContact: React.FC = () => {
     };
     fetchCountries();
 
+    // Carga datos guardados del formulario desde localStorage
     const storedData = localStorage.getItem("contactFormData");
     if (storedData) {
       setSavedData(JSON.parse(storedData));
     }
   }, []);
 
+  // Efecto para guardar los datos enviados en localStorage cada vez que cambian
   useEffect(() => {
     localStorage.setItem("contactFormData", JSON.stringify(savedData));
   }, [savedData]);
 
+  // Maneja los cambios en los campos del formulario
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -63,21 +73,24 @@ const FormContact: React.FC = () => {
       [name]: value,
     }));
 
+    // Si el campo cambiado es "country", actualiza la capital automáticamente
     if (name === "country") {
       const selectedCountry = countries.find(
         (country) => country.name.common === value
       );
       setFormData((prevData) => ({
         ...prevData,
-        capital: selectedCountry?.capital?.[0] || "", 
+        capital: selectedCountry?.capital?.[0] || "",
       }));
     }
   };
 
+  // Maneja el envío del formulario (crear o editar registro)
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null); 
+    setError(null);
 
+    // Validación de campos obligatorios
     if (
       !formData.name ||
       !formData.lastName ||
@@ -89,6 +102,7 @@ const FormContact: React.FC = () => {
       return;
     }
 
+    // Si se está editando, actualiza el registro existente
     if (editingId) {
       setSavedData((prevData) =>
         prevData.map((item) =>
@@ -97,9 +111,11 @@ const FormContact: React.FC = () => {
       );
       setEditingId(null);
     } else {
+      // Si es un nuevo registro, lo agrega con un id único
       setSavedData((prevData) => [...prevData, { ...formData, id: uuidv4() }]);
     }
 
+    // Limpia el formulario después de enviar
     setFormData({
       id: "",
       name: "",
@@ -112,6 +128,7 @@ const FormContact: React.FC = () => {
     });
   };
 
+  // Permite editar un registro existente
   const handleEdit = (id: string) => {
     const itemToEdit = savedData.find((item) => item.id === id);
     if (itemToEdit) {
@@ -120,16 +137,20 @@ const FormContact: React.FC = () => {
     }
   };
 
+  // Elimina un registro de los datos guardados
   const handleDelete = (id: string) => {
     setSavedData((prevData) => prevData.filter((item) => item.id !== id));
   };
 
+  // Renderiza el formulario y la tabla de datos enviados
   return (
     <div className="container mt-5">
       <h2 className="mb-4">Formulario de Contacto</h2>
+      {/* Muestra error si existe */}
       {error && <Alert variant="danger">{error}</Alert>}
       <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
+          {/* Campo Nombre */}
           <Form.Group as={Col} controlId="formGridName">
             <Form.Label>Nombre</Form.Label>
             <Form.Control
@@ -142,6 +163,7 @@ const FormContact: React.FC = () => {
             />
           </Form.Group>
 
+          {/* Campo Apellido */}
           <Form.Group as={Col} controlId="formGridLastName">
             <Form.Label>Apellido</Form.Label>
             <Form.Control
@@ -155,6 +177,7 @@ const FormContact: React.FC = () => {
           </Form.Group>
         </Row>
 
+        {/* Campo Dirección */}
         <Form.Group className="mb-3" controlId="formGridAddress">
           <Form.Label>Dirección</Form.Label>
           <Form.Control
@@ -167,6 +190,7 @@ const FormContact: React.FC = () => {
           />
         </Form.Group>
 
+        {/* Campo Email */}
         <Form.Group className="mb-3" controlId="formGridEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -180,13 +204,15 @@ const FormContact: React.FC = () => {
         </Form.Group>
 
         <Row className="mb-3">
+          {/* Selector de País */}
           <Form.Group as={Col} controlId="formGridCountry">
             <Form.Label>País</Form.Label>
             <Form.Select
               name="country"
               value={formData.country}
               onChange={handleInputChange}
-              required>
+              required
+            >
               <option value="">Selecciona un país</option>
               {countries.map((country) => (
                 <option key={country.name.common} value={country.name.common}>
@@ -196,18 +222,20 @@ const FormContact: React.FC = () => {
             </Form.Select>
           </Form.Group>
 
+          {/* Campo Capital (se autocompleta según país) */}
           <Form.Group as={Col} controlId="formGridCapital">
             <Form.Label>Capital</Form.Label>
             <Form.Control
               type="text"
               name="capital"
               value={formData.capital}
-              readOnly 
+              readOnly
               placeholder="Capital del país"
             />
           </Form.Group>
         </Row>
 
+        {/* Campo Mensaje */}
         <Form.Group className="mb-3" controlId="formGridMessage">
           <Form.Label>Mensaje</Form.Label>
           <Form.Control
@@ -220,11 +248,13 @@ const FormContact: React.FC = () => {
           />
         </Form.Group>
 
+        {/* Botón de envío */}
         <Button variant="primary" type="submit">
           {editingId ? "Actualizar" : "Enviar"}
         </Button>
       </Form>
 
+      {/* Tabla de datos enviados */}
       <h3 className="mt-5 mb-3">Datos Enviados</h3>
       {savedData.length === 0 ? (
         <Alert variant="info">No hay datos guardados aún.</Alert>
@@ -253,17 +283,21 @@ const FormContact: React.FC = () => {
                 <td>{data.capital}</td>
                 <td>{data.message}</td>
                 <td>
+                  {/* Botón para editar registro */}
                   <Button
                     variant="warning"
                     size="sm"
                     className="me-2"
-                    onClick={() => handleEdit(data.id)}>
+                    onClick={() => handleEdit(data.id)}
+                  >
                     Editar
                   </Button>
+                  {/* Botón para eliminar registro */}
                   <Button
                     variant="danger"
                     size="sm"
-                    onClick={() => handleDelete(data.id)}>
+                    onClick={() => handleDelete(data.id)}
+                  >
                     Eliminar
                   </Button>
                 </td>
