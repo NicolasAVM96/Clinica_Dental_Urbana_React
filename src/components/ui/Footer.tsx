@@ -1,10 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  BiPhone,
-  BiEnvelope,
-  BiTimeFive,
-  BiMap,
-} from "react-icons/bi";
+import { BiPhone, BiTimeFive, BiMap} from "react-icons/bi";
 import "../../assets/css/Footer.css";
 
 const Footer: React.FC = () => {
@@ -18,7 +13,6 @@ const Footer: React.FC = () => {
             <BiPhone className="icono-footer"/>
             <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
             <p><strong>Teléfono:</strong> +56 9 8765 4321</p>
-            <BiEnvelope className="icono-footer"/>
             <p><strong>Email:</strong> contacto@clinicadentalurbana.cl</p>
           </Col>
 

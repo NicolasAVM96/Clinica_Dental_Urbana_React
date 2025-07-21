@@ -1,24 +1,19 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/img/logo.jpg";
+import logo from "../../assets/img/logo.jpg";
 import "@fontsource/oswald/400.css";
 
 
-const Header: React.FC = () => {
+const TopNavbar: React.FC = () => {
 
   const styleColorHeader: React.CSSProperties = {
       backgroundColor: "#ffffffff",
     };  
     
-  const styleText: React.CSSProperties = {
-      color: "#222",
-      fontFamily: "Oswald, sans-serif"
-    };
-
   return (
     <Navbar style={styleColorHeader} variant="light" expand="lg">
       <Container className="d-flex justify-content-between align-items-center">
-        <Navbar.Brand as={NavLink} to="/" className="d-flex align-items-center" style={styleText}>
+        <Navbar.Brand as={NavLink} to="/" className="d-flex align-items-center">
           <img
             src={logo}
             alt="Clinica dental Urbana"
@@ -48,4 +43,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default TopNavbar;

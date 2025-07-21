@@ -15,7 +15,8 @@ footer p {
 
 /* Tamaño icono Footer */
 .icono-footer {
-  font-size: 2rem; /* o 24px, 30px, etc. */
+  font-size: 2rem;
+  
 }
 
 /* Título */

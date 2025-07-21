@@ -1,0 +1,19 @@
+/* Estilo de la imagen "header" */
+.header {
+  position: relative;
+  background: linear-gradient(rgba(17, 180, 209, 0.6), rgba(0, 0, 0, 0.6)), url('../img/header.jpg') center/cover no-repeat;
+  height: 300px;
+  clip-path: ellipse(140% 100% at 50% 0%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Estilo del texto "header" */
+.header h1 {
+  font-size: 4rem;
+  color: white;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}

@@ -1,32 +1,11 @@
 import { Card, Container, Row, Col } from "react-bootstrap";
-import ortodoncia from "../../assets/img/servicios_destacados/ortodoncia.jpg";
-import implante from "../../assets/img/servicios_destacados/implante.jpg";
-import blanqueamiento from "../../assets/img/servicios_destacados/blanqueamiento.jpg";
 import { Link } from "react-router-dom";
-import "../../assets/css/FuturedServices.css";
-
-//Se crea un arreglo de objetos para los servicios destacados
-//Cada objeto contiene la imagen, título y descripción del servicio
-const servicios = [
-  {
-    img: ortodoncia,
-    title: "Ortodoncia",
-    desc: "Corrección de la posición dental para una sonrisa alineada.",
-  },
-  {
-    img: implante,
-    title: "Implantes Dentales",
-    desc: "Soluciones permanentes para dientes perdidos.",
-  },
-  {
-    img: blanqueamiento,
-    title: "Blanqueamiento",
-    desc: "Recupera el brillo y color natural de tus dientes.",
-  },
-];
+import "../../assets/css/CardServices.css";
+import { servicios } from "../../data/FuturedServices";
+ 
 
 //Componente que renderiza los servicios destacados
-const ServiciosDestacados: React.FC = () => {
+const CardFuturedServices: React.FC = () => {
   return (
     <section className="py-5" id="services">
       <Container className="text-center">
@@ -57,4 +36,4 @@ const ServiciosDestacados: React.FC = () => {
   );
 };
 
-export default ServiciosDestacados;
+export default CardFuturedServices;
