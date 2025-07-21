@@ -52,20 +52,22 @@ npm install
 npm run dev
 
 ## 📁 Estructura del proyecto
+
+```bash
 src/
 ├── 📁 assets/          # Archivos estáticos
 │   ├── 🎨 css/         # Hojas de estilo personalizadas
 │   └── 🖼️ img/         # Imágenes y recursos gráficos
 │
 ├── 📁 components/      # Componentes reutilizables
-│   ├── 🧩 layout/      # Paginas (Inicio, Servicios, Sobre Nosotros, Contáctenos.)
+│   ├── 🧩 layout/      # Páginas (Inicio, Servicios, Sobre Nosotros, Contáctenos.)
 │   └── 🎛️ ui/          # Elementos UI (Cards, Header, Footer, Carousel, Navbar, etc.)
 │
 ├── 📁 data/            # Archivos de datos (const o interface)
 │
 ├── 🧠 App.tsx          # Componente principal de la aplicación
 └── 🚀 main.tsx         # Punto de entrada de la app (monta React al DOM)
-
+```
 
 ## ✅ Estado del proyecto
 Terminado. El objetivo es replicar las funcionalidades de la versión anterior hecha con jQuery, y aplicar buenas prácticas modernas de desarrollo con React.
