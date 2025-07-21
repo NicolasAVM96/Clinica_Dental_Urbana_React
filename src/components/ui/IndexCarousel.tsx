@@ -1,4 +1,4 @@
-import { Carousel, Container } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import instalaciones_comodas from '../../assets/img/carousel/instalaciones_comodas.jpg';
 import atencion_profesional from '../../assets/img/carousel/atencion_profesional.png';
 import tecnologia_vanguardia from '../../assets/img/carousel/tecnologia_vanguardia.jpg';
@@ -39,7 +39,6 @@ const IndexCarousel: React.FC<CarouselProps> = ({ images }) => {
   const carouselImages = images && images.length > 0 ? images : defaultImages;
 
   return (
-    <Container className="mt-4 mb-4">
       <Carousel interval={3000} pause="hover">
         {carouselImages.map((image, idx) => (
           <Carousel.Item key={idx} style={{ position: "relative" }}>
@@ -58,7 +57,6 @@ const IndexCarousel: React.FC<CarouselProps> = ({ images }) => {
           </Carousel.Item>
         ))}
       </Carousel>
-    </Container>
   );
 };
 

@@ -1,69 +1,75 @@
-# React + TypeScript + Vite
+# 🧩 Mi Primera Web con React + TypeScript + Vite
 
-Esta pagina web se basa en mi primera pagina web con React. Se trabajara en mi anterior pagina web que solo se realizo con HTML, CSSS y Jquery, pero esta vez se migrara a React.
+Este proyecto es una migración de mi primera página web, originalmente hecha con HTML, CSS y jQuery. En esta versión, estoy utilizando **React**, **TypeScript** y **Vite** para crear una arquitectura moderna, modular y eficiente.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías utilizadas
 
-## Expanding the ESLint configuration
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [React Router DOM](https://reactrouter.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [UUID](https://github.com/uuidjs/uuid)
+- [ESLint + Prettier](https://eslint.org/) para análisis estático y formato de código
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 Dependencias principales
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+@fontsource/oswald
+@types/react
+@types/react-dom
+@types/uuid
+bootstrap
+eslint
+eslint-plugin-react-hooks
+eslint-plugin-react-refresh
+prettier
+react
+react-dom
+react-bootstrap
+react-router-dom
+react-icons
+typescript
+typescript-eslint
+uuid
+vite
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Instalación y uso
+1. Clonar el repositorio
+git clone https://github.com/NicolasAVM96/Clinica_Dental_Urbana_React.git
+cd Clinica_Dental_Urbana_React
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Instalar dependencias
+npm install
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. Ejecutar el proyecto en modo desarrollo
+npm run dev
+
+## 📁 Estructura del proyecto
+src/
+├── 📁 assets/          # Archivos estáticos
+│   ├── 🎨 css/         # Hojas de estilo personalizadas
+│   └── 🖼️ img/         # Imágenes y recursos gráficos
+│
+├── 📁 components/      # Componentes reutilizables
+│   ├── 🧩 layout/      # Paginas (Inicio, Servicios, Sobre Nosotros, Contáctenos.)
+│   └── 🎛️ ui/          # Elementos UI (Cards, Header, Footer, Carousel, Navbar, etc.)
+│
+├── 📁 data/            # Archivos de datos (const o interface)
+│
+├── 🧠 App.tsx          # Componente principal de la aplicación
+└── 🚀 main.tsx         # Punto de entrada de la app (monta React al DOM)
+
+
+## ✅ Estado del proyecto
+Terminado. El objetivo es replicar las funcionalidades de la versión anterior hecha con jQuery, y aplicar buenas prácticas modernas de desarrollo con React.
+Se esperan implementar futuros cambios y mejoras
+
+## 🧑‍💻 Autor
+Nicolas Vasquez Monsalvez

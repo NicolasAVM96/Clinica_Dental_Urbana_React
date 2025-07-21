@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../../assets/css/CardServices.css";
-import { servicios } from "../../data/services";
+import { servicios } from "../../data/Services";
 
 
 

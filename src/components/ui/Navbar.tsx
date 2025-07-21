@@ -1,7 +1,6 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo.jpg";
-import "@fontsource/oswald/400.css";
 
 
 const TopNavbar: React.FC = () => {
@@ -11,8 +10,7 @@ const TopNavbar: React.FC = () => {
     };  
     
   return (
-    <Navbar style={styleColorHeader} variant="light" expand="lg">
-      <Container className="d-flex justify-content-between align-items-center">
+    <Navbar style={styleColorHeader} variant="light" expand="lg" className="px-5">
         <Navbar.Brand as={NavLink} to="/" className="d-flex align-items-center">
           <img
             src={logo}
@@ -38,7 +36,6 @@ const TopNavbar: React.FC = () => {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      </Container>
     </Navbar>
   );
 };
