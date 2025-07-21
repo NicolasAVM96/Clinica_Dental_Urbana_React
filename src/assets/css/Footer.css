@@ -1,0 +1,27 @@
+footer {
+  color: white;
+  background-color: #00c2cb;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Párrafos */
+footer svg,
+footer p {
+  font-size: 1rem;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Tamaño icono Footer */
+.icono-footer {
+  font-size: 2rem; /* o 24px, 30px, etc. */
+}
+
+/* Título */
+footer h5 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}

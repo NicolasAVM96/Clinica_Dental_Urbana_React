@@ -1,0 +1,27 @@
+#porque_elegirnos {
+  background: linear-gradient(rgba(17, 180, 209, 0.6), rgba(0, 0, 0, 0.6)), url('../img/porque_elegirnos.jpg') center/cover no-repeat;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#porque_elegirnos .container {
+  color: white;
+}
+
+#porque_elegirnos i {
+  font-size: 3rem;
+  text-align: center;
+}
+
+#porque_elegirnos p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+#porque_elegirnos h2 {
+  font-size: 3rem;
+  text-align: center;
+}

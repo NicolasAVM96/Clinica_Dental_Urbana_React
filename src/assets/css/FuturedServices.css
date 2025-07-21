@@ -1,0 +1,16 @@
+/* -------------------------- Estilos de SERVICIOS --------------------------*/
+
+/* Tamaño de las imagenes de los servicios */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+/* Efecto que escala la tarjetas al pasar el mouse */
+.card:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
